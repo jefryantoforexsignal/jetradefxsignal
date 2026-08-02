@@ -1,0 +1,246 @@
+:root {
+  --navy: #0A1A2F;
+  --gold: #D4AF37;
+  --bg: #FFFFFF;
+  --text: #333;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body { background: var(--bg); color: var(--text); }
+
+/* NAVBAR */
+    nav {
+      background: var(--navy);
+      color: #fff;
+      padding: 15px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+    }
+    /* LOGO */
+.logo {
+  font-size: 24px; /* DULU MUNGKIN 18px, INI DIGEDEIN */
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px; /* biar keliatan pro */
+  margin-left: 0; /* mepet kiri */
+}
+
+.logo span {
+  color: #fbbf24; /* TRADE nya kuning */
+}
+    .nav-links {
+      margin-right: 50px
+      list-style: none;
+      display: flex;
+      gap: 25px
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .hamburger { display: none; cursor: pointer; }
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background: #fff;
+      margin: 5px 0;
+    }
+
+    /* RESPONSIVE NAVBAR BUAT HP */
+    @media (max-width: 768px) {
+      nav { padding: 15px 20px; }
+      .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: var(--navy);
+        flex-direction: column;
+        text-align: center;
+        gap: 0;
+        display: none;
+      }
+      .nav-links.active { display: flex; }
+      .nav-links li { padding: 15px 0; border-top: 1px solid #333; }
+      .hamburger { display: block; }
+    }
+
+/* KONTEN */
+.container { padding: 60px 20px; text-align: center; max-width: 700px; margin: 0 auto; }
+h1 { color: var(--navy); font-size: 32px; font-weight: 900; margin-bottom: 15px; }
+.sub { color: #666; font-size: 17px; margin-bottom: 35px; }
+
+.btn {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  margin: 12px auto;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 17px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+.btn-primary { background: var(--gold); color: var(--navy); border: 2px solid var(--gold); }
+.btn-outline { background: transparent; color: var(--navy); border: 2px solid #ddd; }
+.btn:hover { transform: translateY(-2px); }
+
+footer { text-align: center; padding: 30px; color: #999; font-size: 12px; border-top: 1px solid #eee; }
+/* NAVBAR DESKTOP */
+@media (min-width: 768px) {
+  #navLinks {
+    display: flex !important;
+    gap: 25px;
+    list-style: none;
+    position: static;
+    background: transparent;
+  }
+  #navLinks li {
+    margin: 0;
+  }
+  #navLinks a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 0;
+  }
+  #navLinks a:hover {
+    color: #fbbf24; /* kuning pas hover */
+  }
+  .menu-toggle {
+    display: none; /* sembunyiin tombol ☰ di desktop */
+  }
+}
+/* HEADER & NAVBAR */
+header {
+  background: #0f1a2e;
+  padding: 15px 20px;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+nav h1 {
+  color: #fff;
+  font-size: 22px;
+}
+nav h1 span {
+  color: #fbbf24;
+}
+#navLinks {
+  list-style: none;
+  display: none; /* default sembunyi di HP */
+}
+#navLinks.active {
+  display: block;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background: #0f1a2e;
+  padding: 15px;
+  border-radius: 8px;
+}
+#navLinks li {
+  margin: 10px 0;
+}
+#navLinks a {
+  color: #fff;
+  text-decoration: none;
+}
+.menu-toggle {
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* DESKTOP MODE */
+@media (min-width: 768px) {
+  #navLinks {
+    display: flex !important;
+    position: static;
+    gap: 25px;
+    background: transparent;
+    padding: 0;
+  }
+  #navLinks li {
+    margin: 0;
+  }
+  #navLinks a:hover {
+    color: #fbbf24;
+  }
+  .menu-toggle {
+    display: none; /* tombol ☰ hilang di desktop */
+  }
+}
+/* HEADER FULL */
+header {
+  background: #0f1a2e;
+  width: 100%;
+  padding: 0;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* MENU DESKTOP */
+#navLinks {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+#navLinks a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+#navLinks a:hover {
+  color: #fbbf24;
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* MENU MOBILE */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  #navLinks {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #0f1a2e; /* SAMA KAN WARNA NAVY */
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+  #navLinks.show {
+    display: flex;
+  }
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .chart-container { max-width: 1000px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 20px; }
+    .chart-container h2 { text-align: center; color: #1a2a4f; }
+    .subtitle { text-align: center; color: #888; }
+  </style>
+</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rekapan Bulanan - JE TRADEFX</title>
+  
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    .report-header { padding: 60px 20px 30px; text-align: center; }
+    .report-header h1 { font-size: 36px; color: var(--navy); }
+    .report-header p { color: #666; margin-top: 10px; }
+
+    .table-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+      overflow-x: auto; /* biar bisa scroll di HP */
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    thead {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+    }
+
+    tbody tr:hover {
+      background: #fffaf0; /* hover warna gold muda */
+    }
+
+    .profit { color: #22c55e; font-weight: bold; } /* hijau */
+    .loss { color: #ef4444; font-weight: bold; } /* merah */
+
+    .badge {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+  <nav>
+    <div class="logo">JE<span>TRADE</span>FX</div>
+    
+    <ul id="navLinks">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="rekapan.html">Rekapan</a></li>
+      <li><a href="tentang.html">Tentang</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </nav>
+</header>
+
+  <!-- KONTEN REKAPAN -->
+  <div class="report-header">
+    <h1>Rekapan Bulanan</h1>
+    <p>Transparansi Pips JE TRADEFX</p>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Bulan</th>
+          <th>Pair</th>
+          <th>Jumlah Trade</th>
+          <th>Stoploss</th>
+          <th>Takeprofit</th>
+          <th>Jumlah Pips</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        
+        </tr>
+        <!-- BARIS 1 - CONTOH DATA JULI -->
+        <tr>
+          <td><span class="badge">Juli 2026</span></td>
+          <td>XAUUSD, EURUSD, AUDJPY, USDJPY, GBPJPY, EURJPY, USDCAD, CHFJPY</td>
+          <td>22</td>
+          <td>12</td>
+          <td>10</td>
+          <td class="profit">+545</td>
+        </tr>
+
+        <!-- BARIS 2 - CONTOH DATA JUNI -->
+        <tr>
+          <td><span class="badge">Juni 2026</span></td>
+          <td>EURUSD, EURJPY, GBPJPY</td>
+          <td>16</td>
+          <td>6</td>
+          <td>10</td>
+          <td class="loss">-450</td>
+        </tr>
+
+        <!-- BARIS 3 - CONTOH DATA RUGI -->
+        <tr>
+          <td><span class="badge">Mei 2026</span></td>
+          <td>XAUUSD, GBPJPY, CHFJPY</td>
+          <td>10</td>
+          <td>7</td>
+          <td>3</td>
+          <td class="profit">+686</td>
+        </tr>
+
+          <tr>
+          <td><span class="badge">April 2026</span></td>
+          <td>EURUSD</td>
+          <td>30</td>
+          <td>14</td>
+          <td>16</td>
+          <td class="loss">-400</td>
+        </tr>
+      
+         <tr>
+          <td><span class="badge">Maret 2026</span></td>
+          <td>XAUUSD</td>
+          <td>2</td>
+          <td>1</td>
+          <td>1</td>
+          <td class="profit">+230</td>
+        </tr>
+
+       <tr>
+          <td><span class="badge">februari 2026</span></td>
+          <td>XAUUSD</td>
+          <td>16</td>
+          <td>9</td>
+          <td>7</td>
+          <td class="profit">+133</td>
+        </tr>
+
+        <tr>
+          <td><span class="badge">Januari 2026</span></td>
+          <td>XAUUSD</td>
+          <td>14</td>
+          <td>11</td>
+          <td>3</td>
+          <td class="profit">+876</td>
+        </tr>
+
+        <!-- TINGGAL COPY BARIS <tr> DI ATAS BUAT TAMBAH BULAN BARU -->
+
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+<!-- TAMBAHAN GRAFIK -->
+<div class="chart-container">
+  <h2>Growth JE TRADEFX 2026</h2>
+  <p class="subtitle">Grafik Kumulatif Pips Bulanan</p>
+  <canvas id="growthChart"></canvas>
+</div>
+<!-- SELESAI GRAFIK -->
+
+<footer>
+
+  <footer>
+    © 2026 JE TRADEFX. Data update Setiap Awal Bulan Selanjutnya.
+  </footer>
+
+  <script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('show');
+}
+
+// SCRIPT GRAFIK CHART.JS
+const ctx = document.getElementById('growthChart');
+
+// 1. DATA PER BULAN KAMU - GANTI DI SINI AJA
+const dataBulanan = [876, 133, 230, -400, 686, -450, 545, null, null, null, null, null]; 
+
+// 2. OTOMATIS JADI KUMULATIF
+let total = 0;
+const dataKumulatif = dataBulanan.map(val => {
+  if (val === null) return null; // biar bulan kosong ga kehitung
+  total += val;
+  return total;
+});
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'],
+    datasets: [{
+      label: 'Pips Kumulatif',
+      data: dataKumulatif, // PAKAI YANG INI
+      borderColor: '#2ecc71',
+      backgroundColor: 'rgba(46, 204, 113, 0.1)',
+      borderWidth: 3,
+      tension: 0.4,
+      fill: true,
+      pointBackgroundColor: '#d4af37',
+      pointBorderColor: '#fff',
+      pointRadius: 6,
+      spanGaps: true // biar garis nyambung walau ada null
+    }]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: function(context) {
+            let bulanIni = dataBulanan[context.dataIndex];
+            if(bulanIni === null) return '';
+            let simbol = bulanIni >= 0 ? '+' : '';
+            return `Bulan ini: ${simbol}${bulanIni} pips | Total: ${context.parsed.y} pips`;
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: false
+      }
+    }
+  }
+});
+</script>
+
+</body>
+</html>
